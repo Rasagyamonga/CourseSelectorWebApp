@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Course Planner Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href="/css/updatedUserPortal.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="modal fade custom" id="newPlanModal" tabindex="-1" role="dialog" aria-labelledby="newPlanLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body" id="newPlanFormBody">
+                <form id='newPlanForm'>
+                    <input id='newName' class='newPlanField' type="text" placeholder="Plan Name">
+                    <input id="newMajor" class='newPlanField' type="text" placeholder="Program">
+                    <button id='createPlan' class="btn btn-primary" type="button">Create Plan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade custom" id="editPlanModal" tabindex="-1" role="dialog" aria-labelledby="editPlanLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body" id="editPlanModalBody">
+                <form id='editPlanForm'>
+                    <input id='changeName' class='newPlanField' type="text" placeholder="Plan Name">
+                    <input id="changeMajor" class='newPlanField' type="text" placeholder="Program">
+                    <button id='changePlan' class="btn btn-primary" type="button">Save Changes</button>
+                </form>
+                <button id='deletePlan' class="btn btn-primary btn-danger" type="button">Delete Plan</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark static-top">
+    <div class="container">
+        <span class="nav-text">Welcome to your dashboard,</span><span id='header' class="nav-text"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Dashboard
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a id = "publicPage" class="nav-link" href="#">Public Page</a>
+                </li>
+
+                <li class="nav-item">
+                    <a id="signOut" class="nav-link" href="#">Sign Out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class='panesHeader'>
+    Your Plans <button id = "planButton" class="btn btn-primary">Create New Plan</a>
+</div>
+<section class="planPanes py-5">
+    <div id='panesContainer' class="container">
+        <div id ="cardsContainer" class="row">
+
+        </div>
+    </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/updatedUserPortal.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
