@@ -1,0 +1,77 @@
+body {
+	background-image: url('/assets/sky.jpeg');
+	margin-left: 20px;
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+
+}
+
+#main{
+	background-color: white;
+	width: 50%;
+	margin: auto;
+	margin-top: 10%;
+	border-radius: 10px;
+}
+
+#main h1{
+	display: inline-block;
+	margin-top: 15px;
+	margin-left: 15px;
+}
+
+.inputField{
+	display: inline-block;
+	margin-left: 60px;
+	margin-bottom: 15px;
+}
+
+.signUpField{
+	display:inline-block;
+	margin-left: 30px;
+	margin-bottom: 15px;
+}
+
+#loginButton{
+	display:inline-block;
+	margin-left: 60px;
+	margin-bottom: 0px;
+}
+
+#createAccount{
+	display:inline-block;
+	margin-left: 30px;
+	margin-bottom: 0px;
+}
+
+#main h3{
+	display: inline-block;
+	margin-top: -5px;
+	margin-left: 15px;
+}
+
+#signUpButton{
+	background-color: white;
+	border: 0px;
+	color: blue;
+}
+
+.errorBlock{
+	color: red;
+	margin-left: 5px;
+}
+
+#userLength{
+	display: none;
+}
+
+#userTaken{
+	display:none;
+}
+
+#passLength{
+	display: none;
+}
+
+#passMatch{
+	display: none;
+}
