@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ 	<meta charset="utf-8">
+    <title>Course Mapper Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+ </head>
+ <body>
+   <div class="modal fade custom" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-body" id="errorModalText">
+           <span>Invalid credentials! Please try again.</span>
+         </div>
+       </div>
+     </div>
+   </div>
+
+   <div class="modal fade custom" id="bannedModal" tabindex="-1" role="dialog" aria-labelledby="bannedModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-body" id="bannedModalText">
+           <span>Sorry, you've been banned from Course Planner.</span>
+         </div>
+       </div>
+     </div>
+   </div>
+
+   <div class="modal" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="signUpModalLabel">Sign Up For Course Planner</h5>
+         </div>
+         <div class="modal-body" id="signUpModalText">
+           <form id='signUpForm'>
+             <p1 class><input id='newUser' class='signUpField' type="text" placeholder="New Username"> </p1>
+             <span id='userTaken'class='errorBlock'> - That username is taken</span>
+             <span id='userLength'class='errorBlock'> - Username must be between 4 and 15 characters</span><br>
+          	 <p2 class><input id="newPassword" class='signUpField' type="password" placeholder="New Password"></input></p2>
+             <span id='passLength'class='errorBlock'> - Password is too short (min: 4)</span><br>
+             <p2 class><input id="confirmPassword" class='signUpField' type="password" placeholder="Confirm Password"></input></p3>
+             <span id='passMatch'class='errorBlock'> - Passwords must match</span><br>
+
+             <button id='createAccount' class="btn btn-primary" type="button">Sign Up</button>
+           </form>
+         </div>
+       </div>
+     </div>
+   </div>
+
+  <div id='main'>
+    <div class='header'>
+   	  <h1>Course Planner Login</h1>
+    </div>
+
+   	<form id='loginForm'>
+   		<p1 class><input id='UserName' class='inputField' type="text" placeholder="User name"> </p1><br>
+   		<p2 class><input id="UserPassword" class='inputField' type="password" placeholder="Password"></input></p2><br>
+   		<!-- <input id='UserPassword' type="text" placeholder="Password"></p> -->
+      <button id='loginButton' class="btn btn-primary" type="button">Login</button>
+   	</form>
+   	<br>
+
+   	<h3>New User? <button id='signUpButton' type="button">Sign Up</button></h3>
+
+  </div>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.4.2/cytoscape.min.js"></script>
+ 	<script type="text/javascript" src="/js/index.js"></script>
+
+</body>
+
+</html>
