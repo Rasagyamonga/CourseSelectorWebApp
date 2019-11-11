@@ -1,0 +1,248 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+html {
+  height: 100%;
+}
+
+body {
+  background-image: url('/assets/sky.jpeg');
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+  overflow: hidden;
+}
+
+#main{
+	overflow: hidden;
+	display:block;
+	margin:auto;
+	max-width: 1300px;
+	background: linear-gradient(to bottom, white, #baecff);
+	padding: 10px;
+	height: 100%;
+}
+
+#main h1 {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.search {
+  width: 100%;
+}
+.searchTerm {
+  float: left;
+  width: 100%;
+  border: 3px solid #00B4CC;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.navbar{
+  background-color: #3c99fc;
+}
+
+.nav-text{
+  color: white;
+  font-size: 25px;
+}
+
+.wrap{
+  width: 30%;
+  width: 500px;
+  padding: 10px;
+}
+.tab-content.is-active{
+  overflow: hidden;
+  background-color: white;
+  display: block;
+}
+.table.search-table{
+  margin-top: 25px;
+  left: 0px;
+}
+#searchBarInput{
+  /*margin-right: */
+  margin-top: 0px;
+  /*margin-left: 12*/
+  width: 88%;
+  padding: 10px;
+}
+#searchCoursesBut{
+  width: 9%;
+}
+#searchBarUsers{
+  margin-top: 0px;
+  /*margin-left: 12*/
+  width: 100%;
+  padding: 10px;
+}
+
+#searchBarPlans{
+  margin-top: 0px;
+  /*margin-left: 12*/
+  width: 100%;
+  padding: 10px;
+}
+
+
+/*Tabs */
+.searchForm{
+	height: 800px;
+  padding-right: 20px;
+}
+
+ul.tabs{
+    margin: 0px;
+    padding: 0px;
+    margin-left: 20px;
+    list-style: none;
+}
+ul.tabs li{
+    background: none;
+    color: #222;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+ul.tabs li.current{
+    background: white;
+    color: #222;
+}
+
+.tab-content{
+    display: none;
+    background: white;
+    padding: 15px;
+}
+
+.tab-content.current{
+  margin-top: 0px;
+  margin-left: 20px;
+  width: 100%;
+  display: inherit;
+  min-height: 750px;
+}
+
+.col{
+  max-height: 600px;
+}
+
+.searchArea{
+  overflow: hidden;
+  min-height: 100%;
+}
+
+.tableHead{
+  display: inline-block;
+  margin-right: 18px;
+}
+
+tr {
+  display:table;
+  width:100%;
+  table-layout:fixed
+}
+
+.tableBody{
+  display: block;
+  max-height: 550px;
+  overflow-y: scroll;
+}
+
+#reviewBox {
+  display: inline;
+}
+
+.rating {
+  float: right;
+}
+
+.rating:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+  clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+  float:right;
+  width:1em;
+  padding:0 .1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:200%;
+  line-height:1.2;
+  color:#ddd;
+  text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+  content: '★ ';
+}
+
+.rating > input:checked ~ label {
+  color: #f70;
+  text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: gold;
+  text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #ea0;
+  text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+  position:relative;
+  top:2px;
+  left:2px;
+}
+
+.reviewItem {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid grey;
+}
+
+.reviewHeader {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.checked {
+  color: orange;
+}
+
+.modal-button{
+  float: right;
+  width: 25px;
+  height: 25px;
+  padding-bottom: 5px;
+}
