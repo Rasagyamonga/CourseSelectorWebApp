@@ -1,0 +1,118 @@
+html {
+  height: 100%;
+}
+
+html body {
+  height: 95%;
+  overflow: hidden;
+  background: linear-gradient(to bottom, white, #baecff);
+}
+
+section.planPanes {
+    height: 95%;
+    padding-bottom: 20%;
+    overflow: hidden;
+}
+
+#planButton{
+  float: right;
+}
+
+.navbar{
+  background-color: #3c99fc;
+}
+
+.nav-text{
+  color: white;
+  font-size: 25px;
+}
+
+.panesHeader{
+  margin-top: 10px;
+  font-size: 25px;
+  height:50px;
+  width: 100%;
+  max-width: 1140px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  border-bottom: 1px solid grey;
+}
+
+#panesContainer{
+  height: 100%;
+  overflow-y: auto;
+}
+
+.planPanes .card {
+    border: none;
+    border-radius: 1rem;
+    transition: all 0.2s;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    background: white;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.planPanes hr {
+    margin: 1.5rem 0;
+}
+
+.planPanes .card-title {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+}
+
+.planPanes ul li {
+    margin-bottom: 1rem;
+}
+
+.planPanes .text-muted {
+    opacity: 0.7;
+}
+
+.planPanes .btn {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: 1rem;
+    opacity: 0.7;
+    transition: all 0.2s;
+}
+
+/* Hover Effects on Card */
+
+@media (min-width: 992px) {
+    .planPanes .card:hover {
+        margin-top: -.25rem;
+        margin-bottom: .25rem;
+        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+    }
+    .planPanes .card:hover .btn {
+        opacity: 1;
+    }
+}
+
+.modal-content{
+  min-width: 500px;
+}
+
+#editPlanForm{
+  border-bottom: 1px solid grey;
+  padding-bottom: 15px;
+  vertical-align: middle;
+}
+
+#deletePlan{
+  width: 100%;
+  margin-top: 15px;
+}
+
+.disabled {
+  background-color: #a1a8b5 !important;
+  border: none;
+}
