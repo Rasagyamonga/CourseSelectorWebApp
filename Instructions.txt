@@ -1,0 +1,64 @@
+The main feature of the web app is the course map. After logging in as the user, you will see the user dashboard.
+Here the user can manage all of their course plans, which includes editing course plans, making them public, opening
+the plan itself, and going to the public plans page. Here, select view course map button to be taken to the map
+page for that course, or click on the public page button on the navbar to browse all publically listed course plans.
+
+When the user selects a course map they will be taken to the page to view that course map. This page comprises the main
+functionality of our web app, where you can see a visual representation of your course map and interact with it. Here,
+click on add course in the bottom right to open the course search screen and search for courses and add them.
+You can select a year and a semester for the course, with a maximum year of 4, and the course are automatically
+positioned according to their year and semester and relative to other courses. Arrows are automatically added to
+show course prerequisites, and mousing over a course will highlight all of it's prerequiste courses.
+Additionally, you can click on a course in the graph to see more information about it, set it as in-progress,
+or leave a review. Reviews are out of 5 stars and also include an optional text portion. In this dialog, the user
+can also click a button to browse all reviews for that course.
+
+On the dashboard, there is also a button to make the course plan public. This adds the course to the public listing of
+courses which anyone can browse. Each publically listed course plan can also be reviewed, which is done by clicking
+on reviews and then leave review and it contains the same information as a course review. Each course map can also
+be viewed and if the user likes it then they can add it to their own list of course plans by clicking import.
+
+Admin users have additional capabilities so that they can moderate the website. They can delete reviews for both
+courses and course plans to ensure all reviews are of high quality. They can ban users in case any users are hostile
+and they can also permanently delete the user's account in case it is inactive.
+
+Express Route Overview
+  top-level routes: browser URLs for displaying pages
+    get '/'       - root, shows login page or dashboard if logged in
+    get '/portal' - shows dashboard page or login page if not logged in
+    get '/map'    - shows selected course map or last viewed one in session
+    get '/plans'  - shows public plans page
+
+  simple access routes: retrieving information from server and logging in
+    get '/accounts/userdata'  - returns the username and plans associated with the logged in user/session
+    post '/accounts/login'    - sets session cookie if login is valid
+    get '/accounts/logout'    - destroys session cookie
+    get '/accounts'           - returns an array of all user accounts
+    post '/courses/query'     - returns a list of course objects matching the given coursecode
+    get '/courses/:id'        - returns a single course object with the given object id
+    get '/plans/all'          - returns an array of all the public course plans
+    post '/plans/graph'        - returns the graph object associated with a private plan
+    get '/plans/graph/:id'      - returns the graph object associated with a public plan
+
+  simple database manipulations:
+    post '/accounts'            - creates a new user account
+    delete '/accounts/:uid'     - deletes a user account from the database
+    patch '/accounts/:id/ban'   - bans a user from accessing the site
+    patch '/accounts/:id/unban' - unbans a user from accessing the site
+    patch '/accounts/plans'     - adds a course plan to a user's account
+    delete '/accounts/plans/delete' - deletes a course plan from a user's account
+    patch '/accounts/plans/public'  - toggles a plan as public or private
+    post '/admin'               - creates a new admin account
+
+  complex database manipulations
+    patch '/accounts/plan'      - changes the details of a user's course plan
+    patch '/accounts/plan/map'  - adds or changes the course map associated with a plan
+    post '/courses/review'      - adds or changes the user's review for a course
+    delete '/courses/:cid/:rid' - deletes a course review
+    post '/plans/import'        - imports a public plan into a user's list of plans
+    get '/plans/reviews/:id'    - returns a list of reviews associated with the given course
+    patch '/plans/reviews'      - adds or changes the user's review for a plan
+    delete '/plans/:pid/:rid'   - removes the user's review for a plan
+
+  database initialization:
+    patch '/courses/generate/:password'   - constructs list of course objects in the database from json file
