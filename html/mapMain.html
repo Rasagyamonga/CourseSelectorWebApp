@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Map</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/map_main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark static-top">
+        <div class="container">
+            <span id='titleArea' class="nav-text"></span>
+            <span id='header' class="nav-text"></span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a id='dashboard' class="nav-link" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="publicPage" class="nav-link" href="#">Public Page</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a id="signOut" class="nav-link" href="#">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class='searchBackground'>
+        <div class='searchArea'>
+            <div class='topBar'>
+                <h2>Add New Course</h2>
+                <button id='close' class="btn btn-primary" type="button">&times</button>
+            </div>
+
+            <form id='mainForm'>
+                <span id='searchBar'>
+                    <input id='courseIn' type="text" placeholder="ex. CSC108">
+                    <input id='searchBarBut' class="btn btn-primary" type='button'>
+                </span>
+                <div id='searchResults'>
+
+                </div>
+                <div id='moreInfo'>
+                    <span>Add Course To Year </span>
+                    <input id='yearIn' type='text'>
+                    <input class='radChoice' id='fall' type='radio' name='semester' value=1>
+                    <label for='fall'>Fall</label>
+                    <input class='radChoice' id='winter' type='radio' name='semester' value=2>
+                    <label for='winter'>Winter</label>
+                    <input class='radChoice' id='summer' type='radio' name='semester' value=3>
+                    <label for='summer'>Summer</label>
+
+                    <input id='addButton' class="btn btn-primary" type='button' value='Add Course'>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="courseModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="courseModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="courseModalText"></div>
+                    <hr>
+                    <div>
+                        <div>
+                            <div>
+                                <h4 id="reviewBox">Leave a Review:</h4>
+                                <fieldset class="rating">
+                                    <input type="radio" id="star5" name="rating" value="5" />
+                                    <label for="star5" title="Rocks!">5 stars</label>
+                                    <input type="radio" id="star4" name="rating" value="4" />
+                                    <label for="star4" title="Pretty good">4 stars</label>
+                                    <input type="radio" id="star3" name="rating" value="3" />
+                                    <label for="star3" title="Meh">3 stars</label>
+                                    <input type="radio" id="star2" name="rating" value="2" />
+                                    <label for="star2" title="Kinda bad">2 stars</label>
+                                    <input type="radio" id="star1" name="rating" value="1" />
+                                    <label for="star1" title="Sucks big time">1 star</label>
+                                </fieldset>
+                            </div>
+                            <textarea rows="3" class="form-control" id="reviewText" placeholder="Enter your thoughts on this course"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="mr-auto">
+                        <button id="submitReview" class="btn btn-secondary mr-auto">Submit Review</button>
+                        <button id="showReviews" class="btn btn-secondary mr-auto">See Reviews</button>
+                    </div>
+                    <button id="markInProgress" class="btn btn-secondary">In Progress</button>
+                    <button id="removeCourse" class="btn btn-danger">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reviewModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="spinner-border" role="status" id="review-spinner">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <div id="reviewList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md">
+                <div class="yearLabel">
+                    <hr>
+                    <h3>Year 1</h3>
+                    <hr>
+                </div>
+                <div class="yearLabel">
+                    <hr>
+                    <h3>Year 2</h3>
+                    <hr>
+                </div>
+                <div class="yearLabel">
+                    <hr>
+                    <h3>Year 3</h3>
+                    <hr>
+                </div>
+                <div class="yearLabel">
+                    <hr>
+                    <h3>Year 4</h3>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-md-11 padding-0">
+                <div id='courseMapContainer'></div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-bottom container-fluid" id="footer">
+        <div class="float-right">
+            <button type="button" id='addCourse' class="btn btn-primary">Add Course</button>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.4.2/cytoscape.min.js"></script>
+    <script type="text/javascript" src="/js/map_main.js"></script>
+</body>
+
+</html>
