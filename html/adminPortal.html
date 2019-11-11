@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    	<title>Course Planner Dashboard</title>
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    	<link rel="stylesheet" type="text/css" href="/css/adminPortal.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+ </head>
+
+ <body>
+   <nav class="navbar navbar-expand-lg navbar-dark static-top">
+       <div class="container">
+           <span id='titleArea' class="nav-text">Welcome to your dashboard, <span id='userHeader'></span></span>
+           <span id='header' class="nav-text"></span>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+               aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ml-auto">
+                   <li class="nav-item">
+                       <a id="signOut" class="nav-link" href="#">Sign Out</a>
+                   </li>
+               </ul>
+           </div>
+       </div>
+   </nav>
+   <div id='main'>
+
+   <div class="modal" id="seePlanRevModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+       <div class="modal-dialog modal-lg" role="document">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <h5 class="modal-title" id="seePlanRevLabel"></h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                   </button>
+               </div>
+               <div class="modal-body">
+                   <div class="spinner-border" role="status" id="p-review-spinner">
+                       <span class="sr-only">Loading...</span>
+                   </div>
+                   <div id="planRevList"></div>
+               </div>
+           </div>
+       </div>
+   </div>
+
+   <div class="modal" id="seeReviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+       <div class="modal-dialog modal-lg" role="document">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <h5 class="modal-title" id="reviewModalLabel"></h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                   </button>
+               </div>
+               <div class="modal-body">
+                   <div class="spinner-border" role="status" id="review-spinner">
+                       <span class="sr-only">Loading...</span>
+                   </div>
+                   <div id="reviewList"></div>
+               </div>
+           </div>
+       </div>
+   </div>
+
+   <div class='searchArea'>
+   <div id="tabs" class="container searchForm">
+  	 <ul class="tabs">
+        <li class="tab-link current" data-tab="tab-0">Course Plans</li>
+  	    <li class="tab-link" data-tab="tab-1">Courses</li>
+  	    <li class="tab-link" data-tab="tab-2">Users</li>
+  		  <!-- <a href="#" class="tab-link is-active">Courses</a> -->
+  		  <!-- <a href="#" class="tab-link">Users</a> -->
+     </ul>
+
+     <div id = "tab-0" class="tab-content current">
+       <input id = "searchBarPlans" onkeyup='searchTablePlans()' type="text" placeholder="Search Plans">
+   		 <div class="col">
+   		    <table id = "planTable" class="table search-table">
+   			      <thead class='tableHead'>
+   				        <tr class='header'>
+   					           <th>Plan Name</th>
+   					           <th>Creator</th>
+   					           <th>Reviews</th>
+                       <th>View</th>
+   				        </tr>
+   			      </thead>
+       			  <tbody id='planTableBody' class='tableBody'>
+       				</tbody>
+   			  </table>
+       </div>
+     </div>
+
+     <div id = "tab-1" class="tab-content">
+       <span id='searchBarCourses'>
+           <input id = "searchBarInput" type="text" placeholder="Search Courses"></input>
+           <input id= 'searchCoursesBut' class="btn btn-primary" type='button' value="Search"></input>
+       </span>
+
+  		   <div class="col">
+  		     <table id = "myTableCourses" class="table search-table">
+  			     <thead class='tableHead'>
+  				     <tr class='header'>
+  					     <th>Course Code</th>
+  					     <th>Name of Course</th>
+  					     <th># of Reviews</th>
+  					     <th>Reviews</th>
+  				     </tr>
+  			     </thead>
+  			     <tbody id='courseTableBody' class='tableBody'>
+
+  				    </tbody>
+  		      </table>
+          </div>
+        </div>
+	<div id = "tab-2" class = "tab-content">
+		<input id = "searchBarUsers" onkeyup='searchTableUsers()' type="text" placeholder="Search for Users">
+		<div class="col">
+		<table id = "myTableUsers"class="table search-table">
+			<thead class='tableHead'>
+				<tr class='header'>
+					<th>Username</th>
+					<th>Ban/Unban</th>
+					<th>Remove account</th>
+				</tr>
+			</thead>
+			<tbody id='userTable' class='tableBody'>
+				</tbody>
+			</table>
+    </div>
+	</div>
+</div>
+</div>
+</div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/adminPortal.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.4.2/cytoscape.min.js"></script>
+</body>
+</html>
